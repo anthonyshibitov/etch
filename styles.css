@@ -1,0 +1,9 @@
+.screen-container{
+    width: 60vw;
+    height: 60vw;
+    border: 1px red solid;
+    display: grid;
+
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+}

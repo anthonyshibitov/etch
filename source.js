@@ -3,6 +3,8 @@ let redraw = document.querySelector('#redrawButton');
 let sliderValue = document.querySelector('.slider-value');
 let testScreen = document.querySelector('.test-screen');
 
+let screenContainer = document.querySelector('.screen-container');
+
 sliderValue.textContent = slider.value;
 
 //Allow carraige returns using \r\n to be added
@@ -29,4 +31,17 @@ function redrawScreen(size){
         }
         testScreen.textContent += `\r\n`;
     }
+
+    //Alternative method
+    //screenContainer.style.setProperty('grid-template-rows', `repeat(${size}, 1fr)`);
+    //screenContainer.style.setProperty('grid-template-columns', `repeat(${size}, 1fr)`);
+    
+    screenContainer.style["grid-template-rows"] = `repeat(${size}, 1fr)`;
+    screenContainer.style["grid-template-columns"] = `repeat(${size}, 1fr)`;
+
 }
+
+//Need to set 'pixel' sizes to clientWidth/slider.value
+window.addEventListener('resize', (e) => {
+    console.log(`${screenContainer.clientWidth}x${screenContainer.clientHeight}`);
+});
