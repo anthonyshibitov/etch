@@ -21,24 +21,28 @@ redraw.addEventListener('click', (e) => {
 });
 
 function redrawScreen(size){
+    while(screenContainer.firstChild){
+        screenContainer.removeChild(screenContainer.firstChild);
+    }
+
     testScreen.textContent = '';
     testScreen.textContent += `\r\nDraw ${size}x${size} screen!\r\n\r\n`;
 
     //Loop prototype
     for(let i = 0; i < size; i++){
         for(let j = 0; j < size; j++){
-            testScreen.textContent += 'x';
+            let pixelDiv = document.createElement('div');
+            pixelDiv.setAttribute('class', 'pixelDiv');
+            pixelDiv.addEventListener('mouseover', (e) => {
+                pixelDiv.style["background"] = "black";
+            });
+            screenContainer.appendChild(pixelDiv);
+            
         }
-        testScreen.textContent += `\r\n`;
     }
 
-    //Alternative method
-    //screenContainer.style.setProperty('grid-template-rows', `repeat(${size}, 1fr)`);
-    //screenContainer.style.setProperty('grid-template-columns', `repeat(${size}, 1fr)`);
-    
     screenContainer.style["grid-template-rows"] = `repeat(${size}, 1fr)`;
     screenContainer.style["grid-template-columns"] = `repeat(${size}, 1fr)`;
-
 }
 
 //Need to set 'pixel' sizes to clientWidth/slider.value
