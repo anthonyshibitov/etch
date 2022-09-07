@@ -9,16 +9,20 @@
     <script src="source.js" defer></script>
 </head>
 <body>
-    <div class="slider-container">
-        <input type="range" min="16" max="64" value="32" class="slider" id="sizeSlider">
-    </div>
-    <div class="button-container">
-        <input type="button" value="Draw" id="redrawButton">
-    </div>
-    <div class="slider-value">test</div>
-    <div class="test-screen"></div>
+    <div class="etch-container">
+        <h1>ETCH-A-SKETCH</h1>
+        <!-- SCREEN WHICH WILL HOUSE DRAWABLE DIVS-->
+        <div class="screen-container"></div>
+        <div class="control-container">
+            <div class="slider-container">
+                <input type="range" min="16" max="64" value="32" class="slider" id="sizeSlider">
+            </div>
+            <div class="slider-value">test</div>
 
-    <!-- SCREEN WHICH WILL HOUSE DRAWABLE DIVS-->
-    <div class="screen-container"></div>
+            <div class="button-container">
+                <input type="button" value="Render/Clear" id="redrawButton">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

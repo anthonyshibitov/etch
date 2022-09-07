@@ -5,15 +5,13 @@ let testScreen = document.querySelector('.test-screen');
 
 let screenContainer = document.querySelector('.screen-container');
 
-sliderValue.textContent = slider.value;
+sliderValue.textContent = `${slider.value}x${slider.value} canvas`;
 
 //Allow carraige returns using \r\n to be added
 sliderValue.setAttribute('style', 'white-space: pre;');
-testScreen.setAttribute('style', 'white-space: pre;');
-
 
 slider.addEventListener('input', (e) => {
-    sliderValue.textContent = slider.value;
+    sliderValue.textContent = `${slider.value}x${slider.value} canvas`;
 });
 
 redraw.addEventListener('click', (e) => {
@@ -25,16 +23,16 @@ function redrawScreen(size){
         screenContainer.removeChild(screenContainer.firstChild);
     }
 
-    testScreen.textContent = '';
-    testScreen.textContent += `\r\nDraw ${size}x${size} screen!\r\n\r\n`;
-
-    //Loop prototype
     for(let i = 0; i < size; i++){
         for(let j = 0; j < size; j++){
             let pixelDiv = document.createElement('div');
             pixelDiv.setAttribute('class', 'pixelDiv');
             pixelDiv.addEventListener('mouseover', (e) => {
-                pixelDiv.style["background"] = "black";
+                //Implement click and drag, rather than just hover
+                if(e.buttons == 1){
+                    e.preventDefault();
+                    pixelDiv.style["background"] = "black";
+                }
             });
             screenContainer.appendChild(pixelDiv);
             
@@ -45,7 +43,4 @@ function redrawScreen(size){
     screenContainer.style["grid-template-columns"] = `repeat(${size}, 1fr)`;
 }
 
-//Need to set 'pixel' sizes to clientWidth/slider.value
-window.addEventListener('resize', (e) => {
-    console.log(`${screenContainer.clientWidth}x${screenContainer.clientHeight}`);
-});
+redrawScreen(32);

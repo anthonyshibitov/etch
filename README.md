@@ -4,10 +4,10 @@ Create a variable grid of square containers which change color when the mouse pa
 
 TO-DO  
 
-1. [ ] Use a flex container to house the squares.
-2. [ ] Containers are drawn dynamically via JS depending on what the grid size is set to using a slider. (Project recommends a text input, seems less convenient though)
-3. [ ] Add a hover property to the squares to change the color to black to indicae it has been drawn
-4. [ ] Add a clear button, and apply button for the slider
+1. [X] Use a ~~flex~~ grid container to house the squares.
+2. [X] Containers are drawn dynamically via JS depending on what the grid size is set to using a slider. (Project recommends a text input, seems less convenient though)
+3. [X] Add a ~~hover~~ click-and-drag ~~property~~ move eventListener to the squares to change the color to black to indicae it has been drawn
+4. [X] Add a clear button, and apply button for the slider
 
 Off rip, it seems like the most difficult part is going to be creating the matrix. Will need two loops to iterate x times (x being the value denoted by the slider position) in the x and y axis, respectively.
 
